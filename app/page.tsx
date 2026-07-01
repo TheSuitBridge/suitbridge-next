@@ -22,7 +22,7 @@ return (
 
 <h1>
 
-Industrial Flow Control Knowledge Platform Newwww
+Suit Bridge Menswear Manufacturing Platform
 
 </h1>
 
