@@ -1,21 +1,23 @@
-const API_URL = "https://suitbridge.com/wp-json/suitbridge/v1";
-export interface Post {
-    id:number;
-    title:string;
-    slug:string;
-    excerpt:string;
-    content:string;
-    image:string | null;
-    category:string[];
-}
-export async function getPosts():Promise<Post[]> {
-    const res = await fetch(
-        `${API_URL}/posts`,
-        {
-            next:{
-            revalidate:60
-            }
+import { WPPost } from "@/types/wordpress";
+const API = "https://suitbridge.com/wp-json/suitbridge/v1";
+export async function getPosts()
+:Promise<WPPost[]>{
+const res =
+await fetch(
+    `${API}/posts`,
+    {
+        next:{
+        revalidate:60
         }
-    );
-    return res.json();
+    }
+);
+if(!res.ok){
+throw new Error(
+"Failed to fetch posts"
+);
+
+}
+
+return res.json();
+
 }

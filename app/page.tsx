@@ -1,17 +1,68 @@
-import { getPosts, Post } from "@/lib/wordpress";
+import {getPosts}
+from "@/lib/wordpress";
+
+import PostCard
+from "@/components/cards/PostCard";
+
+
 export default async function Home(){
-const posts:Post[] = await getPosts();
+
+
+const posts =
+await getPosts();
+
+
+
 return (
-    <main>
-        <h1> SuitBridge </h1>
-        {
-            posts.map((post:Post)=>(
-                <article key={post.id}>
-                    <h2> {post.title} </h2>
-                    <p> {post.excerpt} </p>
-                </article>
-            ))
-        }
-    </main>
-    )
+
+<main>
+
+
+<section className="py-20">
+
+<h1>
+
+Industrial Flow Control Knowledge Platform
+
+</h1>
+
+
+<p>
+
+Engineering guides, equipment analysis and supplier insights.
+
+</p>
+
+
+</section>
+
+
+
+<section>
+
+
+{
+posts.map(
+(post)=>(
+
+<PostCard
+key={post.id}
+post={post}
+/>
+
+)
+
+)
+
+}
+
+
+</section>
+
+
+
+</main>
+
+)
+
 }
