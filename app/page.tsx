@@ -1,43 +1,17 @@
-import { getPosts } from "@/lib/wordpress";
-
-
+import { getPosts, Post } from "@/lib/wordpress";
 export default async function Home(){
-
-const posts = await getPosts();
-
-
+const posts:Post[] = await getPosts();
 return (
-
-<main>
-
-<h1>
-SuitBridge
-</h1>
-
-
-{
-posts.map((post)=>(
-
-<article key={post.id}>
-
-<h2>
-{post.title}
-</h2>
-
-
-<p>
-{post.excerpt}
-</p>
-
-
-</article>
-
-))
-}
-
-
-</main>
-
-)
-
+    <main>
+        <h1> SuitBridge </h1>
+        {
+            posts.map((post:Post)=>(
+                <article key={post.id}>
+                    <h2> {post.title} </h2>
+                    <p> {post.excerpt} </p>
+                </article>
+            ))
+        }
+    </main>
+    )
 }
