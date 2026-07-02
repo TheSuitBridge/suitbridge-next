@@ -1,5 +1,4 @@
-import {getPosts}
-from "@/lib/wordpress";
+import { getPosts } from "@/lib/wordpress";
 
 import PostCard
 from "@/components/cards/PostCard";
